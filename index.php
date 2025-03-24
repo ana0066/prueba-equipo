@@ -194,7 +194,7 @@
         <div class="comentarios">
             <div class="comentario">
                 <p class="nombre">DENCEL LAJARA</p>
-                <p>Muy mala, no me llegó el biurí que quería.</p>
+                <p>excelente, justo lo que pedí y a tiempo</p>
                 <h1><div class="estrellas">★★★★☆</div></h1>
             </div>
     
