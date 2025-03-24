@@ -98,7 +98,7 @@
           </div>
         </div>
         <div class="slide swiper-slide">
-          <img src="img/2.jpeg" alt="" class="image" />
+          <img src="img/electo.jpg" alt="" class="image" />
           <div class="image-data">
             <span class="text">Al gusto</span>
             <h2>

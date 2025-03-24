@@ -341,6 +341,7 @@ nav .nav-bar .logo a{
     background-color: var(--search-bar);
 }
 
+
 body.dark .search-field input{
     color: var(--text-color);
 }
@@ -513,12 +514,6 @@ h2 {
         font-size: 20px;
     }
 }
-
-
-
-
-
-
 
 
 /*Comentarios*/
