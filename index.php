@@ -41,6 +41,9 @@
                     <li><a href="#">Inicio</a></li>
                     <li><a href="#">Nosotros</a></li>
                     <li><a href="#">Productos</a></li>
+                    <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'admin'): ?>
+            <li><a href="admin.php">Administrar</a></li>
+        <?php endif; ?>
                     <li><a href="#">Contacto</a></li>
                     
                 </ul>
@@ -63,6 +66,12 @@
                         <i class='bx bx-search'></i>
                     </div>
 
+                </div>
+
+                <div class="profile-icon">
+                    <a href="php/login.php">
+                        <i class='bx bx-user'></i>
+                    </a>
                 </div>
             </div>
         </div>
