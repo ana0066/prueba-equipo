@@ -1,4 +1,4 @@
- 
+
 <!DOCTYPE html>
 <!-- Coding by CodingLab | www.codinglabweb.com  -->
 <html lang="en">
@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inicio</title>
+    <title>Website Image Slider</title>
 
     <!-- Link Swiper's CSS -->
     <link
@@ -15,7 +15,7 @@
     />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="slider.css" />
   </head>
   <body>
     
@@ -41,9 +41,6 @@
                     <li><a href="#">Inicio</a></li>
                     <li><a href="#">Nosotros</a></li>
                     <li><a href="#">Productos</a></li>
-                    <?php if (isset($_SESSION['rol']) && $_SESSION['rol'] == 'admin'): ?>
-            <li><a href="admin.php">Administrar</a></li>
-        <?php endif; ?>
                     <li><a href="#">Contacto</a></li>
                     
                 </ul>
@@ -65,25 +62,22 @@
                         <input type="text" placeholder="Buscar...">
                         <i class='bx bx-search'></i>
                     </div>
-
-                </div>
-
-                <div class="profile-icon">
-                    <a href="php/login.php">
-                        <i class='bx bx-user'></i>
-                    </a>
                 </div>
             </div>
         </div>
         
     </nav>
 
-    <script src="script.js"></script>
+    <script src="MenuNuevo.js"></script>
 
 </body>
 
-<!--SLIDER-->
 
+
+
+
+
+/slider/
     <section class="main swiper mySwiper">
       <div class="wrapper swiper-wrapper">
         <div class="slide swiper-slide">
@@ -111,7 +105,7 @@
         <div class="slide swiper-slide">
           <img src="img/cosisna.jpeg" alt="" class="image" />
           <div class="image-data">
-            <span class="text">Cocina</span>
+            <span class="text">Cosina</span>
             <h2>
                 Nuestra Variedades<br />
                  para el hogar 
@@ -194,7 +188,7 @@
         <div class="comentarios">
             <div class="comentario">
                 <p class="nombre">DENCEL LAJARA</p>
-                <p>excelente, justo lo que pedí y a tiempo</p>
+                <p>Muy mala, no me llegó el biurí que quería.</p>
                 <h1><div class="estrellas">★★★★☆</div></h1>
             </div>
     
@@ -230,7 +224,7 @@
             <div class="box">
                 <figure>
                     <a href="#">
-                        <img src="img/LOGO.png" alt="Distribuidora/Lorenzo">
+                        <img src="img/LOGO DL.png" alt="Distribuidora/Lorenzo">
                     </a>
                 </figure>
             </div>

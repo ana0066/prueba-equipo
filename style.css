@@ -441,6 +441,12 @@ body.dark .search-field i{
 
 
 
+
+
+
+
+
+
 /*variedades*/
   /* Estilos generales */
   body {
@@ -473,8 +479,8 @@ h2 {
     height: auto;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #513831; /* Bordes más visibles */
-    box-shadow: 0px 4px 8px rgba(51, 28, 28, 0.2);
+    border: 5px solid #000000; /* Bordes más visibles */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .categoria p {
@@ -643,5 +649,3 @@ body {
         padding: 35px 0px;
     }
 }
-
-
