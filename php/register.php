@@ -45,10 +45,13 @@ if ($result->num_rows > 0) {
     <link rel="stylesheet" href="../estilos.css">
 </head>
 <body>
+
+<div class="container">
     
-<header>
-        <h1>Distribuidora Lorenzo</h1>
-    </header>
+    <div class="presentacion">
+            <h1>Distribuidora Lorenzo</h1>
+            <p>Se parte de nuestra familia y compra nuestros productos</p>
+    </div>
 
 <div class="form-container">
 
@@ -60,6 +63,7 @@ if ($result->num_rows > 0) {
     </form>
 
     <a href="login.php">¿Ya tienes cuenta? Inicia sesión</a>
+</div>
 </div>
 
 </body>

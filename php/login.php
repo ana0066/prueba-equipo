@@ -11,12 +11,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
-    
+
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
-        if (password_verify($password, $user['contraseña'])) {
+
+        if (password_verify($password, $user['contraseña'])) { // Si usaste password_hash()
             $_SESSION['usuario'] = $user['nombre'];
             $_SESSION['rol'] = $user['rol'];
+
             header("Location: ../index.php");
             exit();
         } else {
@@ -28,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,23 +40,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="../estilos.css">
 </head>
 <body>
-    
-<header>
+
+<div class="container">
+
+    <div class="presentacion">
         <h1>Distribuidora Lorenzo</h1>
-</header>
+        <p>Busca los mejores productos para la decoración y buen funcionamiento de tu hogar</p>
+    </div>
 
-<div class="form-container">
+    <div class="form-container">
+        <img src="../img/LOGO.png" class="logo">
+        <form action="login.php" method="POST">
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <a href="register.php">¿No tienes cuenta? Regístrate</a>
+    </div>
 
-    <form action="login.php" method="POST">
-        <input type="email" name="email" placeholder="Correo electrónico" required>
-        <input type="password" name="password" placeholder="Contraseña" required>
-        <button type="submit">Iniciar Sesión</button>
-    </form>
-    <a href="register.php">¿No tienes cuenta? Regístrate</a>
 </div>
 
 </body>
 </html>
-
-
-

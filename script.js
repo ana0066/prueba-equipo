@@ -44,6 +44,3 @@ body.addEventListener("click" , e =>{
 
 
 
-
-
-

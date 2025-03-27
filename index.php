@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <!-- Coding by CodingLab | www.codinglabweb.com  -->
@@ -6,7 +9,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Website Image Slider</title>
+    <title>Inicio</title>
 
     <!-- Link Swiper's CSS -->
     <link
@@ -15,7 +18,7 @@
     />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="slider.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     
@@ -26,6 +29,7 @@
     <title>Distribuidora Lorenzo</title>
 </head>
 <body>
+    
     <nav>
         <div class="nav-bar">
             <i class='bx bx-menu sidebarOpen' ></i>
@@ -42,6 +46,7 @@
                     <li><a href="#">Nosotros</a></li>
                     <li><a href="#">Productos</a></li>
                     <li><a href="#">Contacto</a></li>
+                    
                     
                 </ul>
             </div>
@@ -63,22 +68,34 @@
                         <i class='bx bx-search'></i>
                     </div>
                 </div>
+
+                <div class="searchToggle">
+                    <?php 
+                        if (isset($_SESSION['usuario'])) {
+                            echo "<a class='searchToggle logoutBtn' id='logoutBtn' href='php/logout.php'><i class='bx bx-log-out'></i></a>";
+                            echo "<span class='username'>" . $_SESSION['usuario'] . "</span>";
+                        } else {
+                            echo "<a class='searchToggle' href='php/login.php'><i class='bx bx-user'></i></a>";
+                        }
+                    ?>
+                </div>
+                
             </div>
         </div>
         
     </nav>
 
-    <script src="MenuNuevo.js"></script>
+     
+
+    <script src="script.js"></script>
 
 </body>
 
 
+<!--Slider-->
 
+<section class="main swiper mySwiper">
 
-
-
-/slider/
-    <section class="main swiper mySwiper">
       <div class="wrapper swiper-wrapper">
         <div class="slide swiper-slide">
           <img src="img/platoss.jpeg" alt="" class="image" />
@@ -105,7 +122,7 @@
         <div class="slide swiper-slide">
           <img src="img/cosisna.jpeg" alt="" class="image" />
           <div class="image-data">
-            <span class="text">Cosina</span>
+            <span class="text">Cocina</span>
             <h2>
                 Nuestra Variedades<br />
                  para el hogar 
@@ -224,7 +241,7 @@
             <div class="box">
                 <figure>
                     <a href="#">
-                        <img src="img/LOGO DL.png" alt="Distribuidora/Lorenzo">
+                        <img src="img/LOGO.png" alt="Distribuidora/Lorenzo">
                     </a>
                 </figure>
             </div>
