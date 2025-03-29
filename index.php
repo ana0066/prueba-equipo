@@ -68,8 +68,11 @@ session_start();
                         <i class='bx bx-search'></i>
                     </div>
                 </div>
+                
+            </div>
+            <div class="account-shopping">
 
-                <div class="searchToggle">
+            <div class="user">
                     <?php 
                         if (isset($_SESSION['usuario'])) {
                             echo "<a class='searchToggle logoutBtn' id='logoutBtn' href='php/logout.php'><i class='bx bx-log-out'></i></a>";
@@ -79,7 +82,6 @@ session_start();
                         }
                     ?>
                 </div>
-                
             </div>
         </div>
         
@@ -213,16 +215,12 @@ session_start();
                 <p class="nombre">CASIMIRA LÓPEZ</p>
                 <p>Buenas</p>
                 <div class="estrellas">★★★★★</div>
-                
-                
             </div>
     
             <div class="comentario">
                 <p class="nombre">SELENA QUINTANILLA</p>
                 <p>Siempre hay nuevas opciones y una gran variedad para elegir, los precios son muy accesibles también.</p>
                 <div class="estrellas">★★★★☆</div>
-                
-                
             </div>
         </div>
     
