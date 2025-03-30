@@ -42,5 +42,10 @@ body.addEventListener("click" , e =>{
     }
 });
 
+/*carrito*/ 
+document.getElementById("cartIcon").addEventListener("click", function() {
+  alert("Carrito de compras abierto");
+});
+/*carrito*/ 
 
 
