@@ -40,6 +40,7 @@ session_start();
                     <span class="logo"><a href="#">Distribuidora Lorenzo</a></span>
                     <i class='bx bx-x siderbarClose'></i>
                 </div>
+                
 
                 <ul class="nav-links">
                     <li><a href="#">Inicio</a></li>
@@ -68,7 +69,9 @@ session_start();
                         <i class='bx bx-search'></i>
                     </div>
                 </div>
-                
+                <div class="cart-icon">
+                <i class='bx bxs-cart'></i>
+            </div>
             </div>
             <div class="account-shopping">
 
