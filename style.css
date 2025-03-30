@@ -401,7 +401,6 @@ body.dark .search-field i{
     color: white;
 }
 
-
 @media (max-width: 790px) {
     nav .nav-bar .sidebarOpen{
         display: block;
