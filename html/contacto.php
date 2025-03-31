@@ -12,8 +12,70 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- ANIMATE CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"><a href="#">Distribuidora Lorenzo</a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="#">Distribuidora Lorenzo</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+                
+
+                <ul class="nav-links">
+                    <li><a href="../index.php">Inicio</a></li>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="../html/productos.php">Productos</a></li>
+                    <li><a href="../html/contacto.php">Contacto</a></li>
+                    
+                    
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+
+                <div class="searchBox">
+                   <div class="searchToggle">
+                    <i class='bx bx-x cancel'></i>
+                    <i class='bx bx-search search'></i>
+                   </div>
+
+                    <div class="search-field">
+                        <input type="text" placeholder="Buscar...">
+                        <i class='bx bx-search'></i>
+                    </div>
+                </div>
+                <div class="cart-icon">
+                <i class="bx bxs-cart"  onclick="toggleCart()"></i>
+                <span id="cart-count">0</span>
+            </div>
+            </div>
+            <div class="account-shopping">
+
+            <div class="user">
+                    <?php 
+                        if (isset($_SESSION['usuario'])) {
+                            echo "<a class='searchToggle logoutBtn' id='logoutBtn' href='../php/logout.php'><i class='bx bx-log-out'></i></a>";
+                            echo "<span class='username'>" . $_SESSION['usuario'] . "</span>";
+                        } else {
+                            echo "<a class='searchToggle' href='../php/login.php'><i class='bx bx-user'></i></a>";
+                        }
+                    ?>
+                </div>
+            </div>
+        </div>
+        
+    </nav>
     
     <div class="content">
 
