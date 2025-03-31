@@ -9,7 +9,7 @@ session_start();
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inicio</title>
+    <title>Productos</title>
 
     <!-- Link Swiper's CSS -->
     <link
@@ -18,7 +18,8 @@ session_start();
     />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../css/productos.css">
   </head>
   <body>
     
@@ -44,8 +45,8 @@ session_start();
 
                 <ul class="nav-links">
                     <li><a href="../index.php">Inicio</a></li>
-                    <li><a href="html/nosotros.php">Nosotros</a></li>
-                    <li><a href="html/productos.php">Productos</a></li>
+                    <li><a href="nosotros.php">Nosotros</a></li>
+                    <li><a href="productos.php">Productos</a></li>
                     <li><a href="#">Contacto</a></li>
                     
                     
@@ -70,7 +71,7 @@ session_start();
                     </div>
                 </div>
                 <div class="cart-icon">
-                <i class='bx bxs-cart onclick="toggleCart()"'></i>
+                <i class="bx bxs-cart"  onclick="toggleCart()"></i>
                 <span id="cart-count">0</span>
             </div>
             </div>
@@ -91,151 +92,47 @@ session_start();
         
     </nav>
 
-     
+    <main>
+        <div id="product-list">
+            <?php
+            $conn = new mysqli('localhost', 'root', '', 'distribuidoral');
+            if ($conn->connect_error) {
+                die('Error de conexión: ' . $conn->connect_error);
+            }
 
-    <script src="script.js"></script>
+            $sql = "SELECT * FROM products";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<div class='product'>
+                            <img src='{$row['urlImagen']}' alt='{$row['nombre']}'>
+                            <h3>{$row['nombre']}</h3>
+                            <p>En stock: {$row['existencia']}</p>
+                            <p>Precio: $ {$row['valor']}</p>
+                            <button onclick='agregarAlCarrito({$row['id']}, \"{$row['nombre']}\", {$row['valor']}, \"{$row['urlImagen']}\")'>Agregar al Carrito</button>
+                          </div>";
+                }
+            }
+            $conn->close();
+            ?>
+        </div>
+    </main>
+
+    <aside id="cart">
+        <span class="close-btn" onclick="toggleCart()">&times;</span>
+        <h2>Carrito de Compras</h2>
+        <div id="cart-items"></div>
+        <div id="cart-total">Total: $0</div>
+        <button onclick="finalizarPago()">Finalizar Pago</button>
+    </aside> 
+
+    <script src="../carrito.js"></script>
+    <script src="../script.js"></script>
 
 </body>
-
-
-<!--Slider-->
-
-<section class="main swiper mySwiper">
-
-      <div class="wrapper swiper-wrapper">
-        <div class="slide swiper-slide">
-          <img src="img/platoss.jpeg" alt="" class="image" />
-          <div class="image-data">
-            <span class="text">Al gusto</span>
-            <h2>
-                Nuestra Variedades <br />
-              de platos
-            </h2>
-            <a href="#" class="button">Mas informacion</a>
-          </div>
-        </div>
-        <div class="slide swiper-slide">
-          <img src="img/electo.jpg" alt="" class="image" />
-          <div class="image-data">
-            <span class="text">Al gusto</span>
-            <h2>
-                Nuestra Variedades<br />
-              Eletronicos
-            </h2>
-            <a href="#" class="button">Mas informacion</a>
-          </div>
-        </div>
-        <div class="slide swiper-slide">
-          <img src="img/cosisna.jpeg" alt="" class="image" />
-          <div class="image-data">
-            <span class="text">Cocina</span>
-            <h2>
-                Nuestra Variedades<br />
-                 para el hogar 
-              
-            </h2>
-            <a href="#" class="button">Mas informacion </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="swiper-button-next nav-btn"></div>
-      <div class="swiper-button-prev nav-btn"></div>
-      <div class="swiper-pagination"></div>
-    </section>
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 1,
-        loop: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
-    </script>
-    
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Variedades del Hogar</title>
-
 </head>
-<body>
-<br>
-<br>
-    <h2>DISFRUTA DE TODAS NUESTRAS VARIEDADES</h2>
-    
-    <div class="contenedor">
-        <div class="categoria">
-            <img src="img/Mobiliarida.jpeg" alt="Mobiliaria">
-            <p>MOBILIARIA</p>
-        </div>
-        <div class="categoria">
-            <img src="img/PRODUCTOS PARA EL HOGAR.jpeg" alt="Productos para el hogar">
-            <p>PRODUCTOS PARA EL HOGAR</p>
-        </div>
-        <div class="categoria">
-            <img src="img/Decoracion de hogar.jpeg" alt="Decoraciones para el hogar">
-            <p>DECORACIONES PARA EL HOGAR</p>
-        </div>
-        <div class="categoria">
-            <img src="img/eletrodomestico.jpeg" alt="Electrodomésticos">
-            <p>ELECTRODOMÉSTICOS</p>
-        </div>
-        <div class="categoria">
-            <img src="img/vaji.jpeg" alt="Vajillas">
-            <p>VAJILLAS</p>
-        </div>
-    </div>
-    <br>
-    <br>
 
-   
-    
-  
-    
-        <div class="banner">
-            <p>VIVE LA EXPERIENCIA COMPLETA EN DISTRIBUIDORA LORENZO 🗨️</p>
-        </div>
-    
-        <div class="comentarios">
-            <div class="comentario">
-                <p class="nombre">DENCEL LAJARA</p>
-                <p>Muy mala, no me llegó el biurí que quería.</p>
-                <h1><div class="estrellas">★★★★☆</div></h1>
-            </div>
-    
-            <div class="comentario">
-                <p class="nombre">CASIMIRA LÓPEZ</p>
-                <p>Buenas</p>
-                <div class="estrellas">★★★★★</div>
-            </div>
-    
-            <div class="comentario">
-                <p class="nombre">SELENA QUINTANILLA</p>
-                <p>Siempre hay nuevas opciones y una gran variedad para elegir, los precios son muy accesibles también.</p>
-                <div class="estrellas">★★★★☆</div>
-            </div>
-        </div>
-    
-<br>
-<br>
-<br>
-     <!--Iconos-->
-     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    
-</head>
 <body>
 <!--::::Pie de Pagina::::::-->
     <footer class="pie-pagina">
@@ -243,7 +140,7 @@ session_start();
             <div class="box">
                 <figure>
                     <a href="#">
-                        <img src="img/LOGO.png" alt="Distribuidora/Lorenzo">
+                        <img src="../img/LOGO.png" alt="Distribuidora/Lorenzo">
                     </a>
                 </figure>
             </div>
