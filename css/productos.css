@@ -51,7 +51,7 @@ main {
 }
 
 .product {
-    background-color: rgba(51, 35, 31, 0.479);
+    background-color: #8b766f;
     border-radius: 10px;
     overflow: hidden;
     padding: 15px;
@@ -64,7 +64,7 @@ main {
 }
 
 .product img {
-    background-color: #5e4c47;
+    background-color: #503e39;
     padding: 10px;
     border-radius: 8px;
     width: 100%;

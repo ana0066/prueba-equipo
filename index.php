@@ -43,7 +43,7 @@ session_start();
                 
 
                 <ul class="nav-links">
-                    <li><a href="../index.php">Inicio</a></li>
+                    <li><a href="#">Inicio</a></li>
                     <li><a href="html/nosotros.php">Nosotros</a></li>
                     <li><a href="html/productos.php">Productos</a></li>
                     <li><a href="#">Contacto</a></li>
