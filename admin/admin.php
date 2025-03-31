@@ -8,6 +8,7 @@
     <title>Carrito</title>
 
     <link rel="stylesheet" href="../admin/style.css">
+    <link rel="stylesheet" href="../style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,29 +19,76 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
         <script src="https://kit.fontawesome.com/f6cb57d338.js" crossorigin="anonymous"></script>
 
 <body>
     <header>
         <div class="logo">Distribuidora Lorenzo</div>
         <nav>
-            <ul class="nav-links">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </nav>
-        <div class="icons">
-            <i class="fas fa-search"></i>
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-shopping-cart"></i>
-            <i class="fas fa-user"></i>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"><a href="#">Distribuidora Lorenzo</a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="#">Distribuidora Lorenzo</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+                
+
+                <ul class="nav-links">
+                    <li><a href="../index.php">Inicio</a></li>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="../html/productos.php">Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    
+                    
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+
+                <div class="searchBox">
+                   <div class="searchToggle">
+                    <i class='bx bx-x cancel'></i>
+                    <i class='bx bx-search search'></i>
+                   </div>
+
+                    <div class="search-field">
+                        <input type="text" placeholder="Buscar...">
+                        <i class='bx bx-search'></i>
+                    </div>
+                </div>
+                <div class="cart-icon">
+                <i class="bx bxs-cart"  onclick="toggleCart()"></i>
+                <span id="cart-count">0</span>
+            </div>
+            </div>
+            <div class="account-shopping">
+
+            <div class="user">
+                    <?php 
+                        if (isset($_SESSION['usuario'])) {
+                            echo "<a class='searchToggle logoutBtn' id='logoutBtn' href='../php/logout.php'><i class='bx bx-log-out'></i></a>";
+                            echo "<span class='username'>" . $_SESSION['usuario'] . "</span>";
+                        } else {
+                            echo "<a class='searchToggle' href='../php/login.php'><i class='bx bx-user'></i></a>";
+                        }
+                    ?>
+                </div>
+            </div>
         </div>
+        
+    </nav>
     </header>
 
     <main>
-        <div class="contenedor">
+        <div class="contenedor-productos">
             <!-- Añadir -->
             <div class="añadir">
                 <h2>Añadir</h2>
