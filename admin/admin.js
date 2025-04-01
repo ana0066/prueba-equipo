@@ -18,7 +18,7 @@ function showMessage(className, messageText) {
 // Función para cargar los productos desde la base de datos
 function cargarProductos() {
   console.log('Cargando productos desde la base de datos...');
-  fetch('../server/fetchProducts.php')
+  fetch('../php/fetchProducts.php')
     .then(response => response.json())
     .then(data => {
       console.log('Productos cargados:', data);
@@ -111,7 +111,7 @@ document.getElementById("botonAñadir").addEventListener("click", function (even
   
   console.log('Enviando petición para agregar producto...', producto);
   // Petición POST para agregar el producto
-  fetch('../server/addProduct.php', {
+  fetch('../php/addProduct.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(producto)
@@ -151,7 +151,7 @@ document.getElementById("botonEditar").addEventListener("click", function (event
   const dataToSend = { nombre, atributo, nuevoValor };
   
   console.log('Enviando petición para editar producto...', dataToSend);
-  fetch('../server/editProduct.php', {
+  fetch('../php/editProduct.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(dataToSend)
@@ -185,7 +185,7 @@ document.getElementById("botonEliminar").addEventListener("click", function (eve
   }
   
   console.log('Enviando petición para eliminar producto...');
-  fetch('../server/deleteProduct.php', {
+  fetch('../php/deleteProduct.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ nombre })

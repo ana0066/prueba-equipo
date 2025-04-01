@@ -4,7 +4,6 @@
     box-sizing: border-box;
     color: white;
     font-family: 'Montserrat', sans-serif;
-    color: black;
 }
 
 body {
@@ -12,16 +11,70 @@ body {
     padding-top: 80px;
 }
 
-.contenedor-cambios{
-    width: 100%;
+.contenedor-cambios {
     display: flex;
-    background-color: aquamarine;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 100px 50px;
 }
 
-.cambios{
-    background-color: beige;
+.cambios {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 300px;
-    height: 400px;
-    border-radius: 20px;
-    margin: 100px auto;
+    text-align: center;
+    margin: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: black;
+}
+
+label {
+    font-weight: bold;
+    text-align: left;
+    color: rgb(95, 91, 91);
+}
+
+/* Inputs y selects */
+input, select {
+    padding: 2px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: black;
+}
+
+/* Botón */
+.button {
+    background: #5f311f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.button:hover {
+    background: #381e13;
+}
+
+/* Contenedor de productos */
+.contenedorProductos {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.mostrarProductos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
