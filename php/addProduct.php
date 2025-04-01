@@ -1,36 +1,31 @@
 <?php
-require 'db.php'; // Asegúrate de incluir la conexión a la base de datos
+header("Content-Type: application/json");
+include 'db.php'; // Archivo donde conectamos con la base de datos
 
-// Recibir los datos JSON desde el `fetch`
-$data = json_decode(file_get_contents("php://input"), true);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $data = json_decode(file_get_contents("php://input"), true);
 
-// Verificar que los datos existen
-if (isset($data['nombre']) && isset($data['valor']) && isset($data['existencia']) && isset($data['urlImagen'])) {
-    
-    $nombre = $data['nombre'];
-    $valor = $data['valor'];
-    $existencia = $data['existencia'];
-    $urlImagen = $data['urlImagen'];
-
-    // Preparar la consulta SQL
-    $sql = "INSERT INTO products (nombre, valor, existencia, urlImagen) VALUES (?, ?, ?, ?)";
-    
-    if ($stmt = $conn->prepare($sql)) {
-        $stmt->bind_param("sdis", $nombre, $valor, $existencia, $urlImagen);
-        
-        if ($stmt->execute()) {
-            echo json_encode(["success" => true, "message" => "Producto agregado"]);
-        } else {
-            echo json_encode(["success" => false, "message" => "Error al agregar producto"]);
-        }
-        
-        $stmt->close();
-    } else {
-        echo json_encode(["success" => false, "message" => "Error en la consulta"]);
+    if (!isset($data["nombre"], $data["valor"], $data["existencia"], $data["urlImagen"])) {
+        echo json_encode(["error" => "Faltan datos"]);
+        exit;
     }
-} else {
-    echo json_encode(["success" => false, "message" => "Datos incompletos"]);
-}
 
-$conn->close();
+    $nombre = $data["nombre"];
+    $valor = $data["valor"];
+    $existencia = $data["existencia"];
+    $urlImagen = $data["urlImagen"];
+
+    $conn = conectarDB();
+    $stmt = $conn->prepare("INSERT INTO products (nombre, valor, existencia, urlImagen) VALUES (?, ?, ?, ?)");
+    $stmt->bind_param("sdisi", $nombre, $valor, $existencia, $urlImagen);
+
+    if ($stmt->execute()) {
+        echo json_encode(["message" => "Producto agregado con éxito"]);
+    } else {
+        echo json_encode(["error" => "Error al agregar producto"]);
+    }
+
+    $stmt->close();
+    $conn->close();
+}
 ?>

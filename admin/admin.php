@@ -161,7 +161,6 @@
     <script src="admin.js"></script>
     <script src="../script.js"></script>
     <script src="../carrito.js"></script>
-    <script src="../main.js"></script>
 </body>
 
 </html>

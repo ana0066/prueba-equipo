@@ -1,23 +1,30 @@
 <?php
+header("Content-Type: application/json");
 include 'db.php';
-header('Content-Type: application/json');
 
 $data = json_decode(file_get_contents("php://input"), true);
+$conn = conectarDB();
 
-$nombre = $data['nombre'];
-$atributo = $data['atributo'];
-$nuevoValor = $data['nuevoValor'];
+$id = $data["id"];
+$atributo = $data["atributo"];
+$nuevoValor = $data["nuevoValor"];
 
-// Actualización dinámica. IMPORTANTE: valida y restringe qué atributos se pueden actualizar.
-$permitidos = ['nombre', 'valor', 'existencia', 'urlImagen'];
-if (!in_array($atributo, $permitidos)) {
-    echo json_encode(['success' => false, 'message' => 'Atributo no permitido']);
-    exit;
+if ($atributo == "valor" || $atributo == "existencia") {
+    $query = "UPDATE products SET $atributo = ? WHERE id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("di", $nuevoValor, $id);
+} else {
+    $query = "UPDATE products SET $atributo = ? WHERE id = ?";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("si", $nuevoValor, $id);
 }
 
-$sql = "UPDATE products SET $atributo = ? WHERE nombre = ?";
-$stmt = $pdo->prepare($sql);
-$result = $stmt->execute([$nuevoValor, $nombre]);
+if ($stmt->execute()) {
+    echo json_encode(["message" => "Producto actualizado con éxito"]);
+} else {
+    echo json_encode(["error" => "Error al actualizar producto"]);
+}
 
-echo json_encode(['success' => $result]);
+$stmt->close();
+$conn->close();
 ?>

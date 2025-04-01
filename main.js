@@ -7,7 +7,7 @@ const contenedor = document.getElementById('contenedor');
 
 // Función para obtener productos desde la base de datos
 function fetchProductos() {
-    fetch('../server/fetchProducts.php')
+    fetch('php/fetchProducts.php')
         .then(response => response.json())
         .then(data => {
             productos = data;
@@ -33,7 +33,7 @@ function visualizarProductos() {
 
 // Función para comprar un producto
 function comprar(nombreProducto) {
-    fetch('../server/buyProduct.php', {
+    fetch('php/buyProduct.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

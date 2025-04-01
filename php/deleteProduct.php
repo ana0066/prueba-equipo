@@ -1,14 +1,22 @@
 <?php
+header("Content-Type: application/json");
 include 'db.php';
-header('Content-Type: application/json');
 
 $data = json_decode(file_get_contents("php://input"), true);
+$conn = conectarDB();
 
-$nombre = $data['nombre'];
+$id = $data["id"];
 
-$sql = "DELETE FROM products WHERE nombre = ?";
-$stmt = $pdo->prepare($sql);
-$result = $stmt->execute([$nombre]);
+$query = "DELETE FROM products WHERE id = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $id);
 
-echo json_encode(['success' => $result]);
+if ($stmt->execute()) {
+    echo json_encode(["message" => "Producto eliminado con éxito"]);
+} else {
+    echo json_encode(["error" => "Error al eliminar producto"]);
+}
+
+$stmt->close();
+$conn->close();
 ?>
