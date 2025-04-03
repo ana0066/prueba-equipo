@@ -11,154 +11,70 @@ body {
     padding-top: 80px;
 }
 
-h1 {
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    margin: 30px 0px;
-}
-
-img {
-    width: 320px;
-    height: 340px;
-    object-fit: cover;
-    border-radius: 20px 20px 0px 0px;
-}
-
-
-
-
-.contenedor-productos {
+.contenedor-cambios {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 50px auto 45px auto;
-    width: 90%;
+    justify-content: space-around;
     flex-wrap: wrap;
-    gap: 40px;
+    margin: 100px 50px;
 }
 
-.contenedor-productos>div {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: #2D4263;
-    height: 400px;
-    width: 400px;
-    border-radius: 20px;
-    flex-direction: column;
-    padding-top: 35px;
-    gap: 25px;
-    flex: 1 1 300px;
-}
-
-.contenedor-productos>div>form {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.contenedor-productos>div>form>input,
-select {
-    border-radius: 5px;
-    border: none;
-    padding: 5px;
-    color: black;
-}
-option{
-    color: black;
-}
-
-.contenedor-productos .button {
-    margin-top: 20px;
-    height: 30px;
-    width: 200px;
-    border-radius: 7px;
-    border: none;
-    color: black;
-}
-
-.contenedorProductos h2 {
+.cambios {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
     text-align: center;
-    padding-bottom: 20px;
-    font-weight: 300;
-    font-size: 40px;
+    margin: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: black;
+}
+
+label {
+    font-weight: bold;
+    text-align: left;
+    color: rgb(95, 91, 91);
+}
+
+/* Inputs y selects */
+input, select {
+    padding: 2px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: black;
+}
+
+/* Botón */
+.button {
+    background: #5f311f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.button:hover {
+    background: #381e13;
+}
+
+/* Contenedor de productos */
+.contenedorProductos {
+    text-align: center;
+    margin-top: 20px;
 }
 
 .mostrarProductos {
-    width: 90%;
-    margin: auto;
     display: flex;
-    justify-content: center;
-    gap: 50px;
-    margin-bottom: 100px;
     flex-wrap: wrap;
-}
-
-.mostrarProductos>div {
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    background-color: #2D4263;
-    border-radius: 20px;
-}
-
-.informacion {
-    height: 150px;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
     gap: 15px;
-}
-
-.informacion>p:first-child {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 25px;
-    font-weight: 300;
-}
-
-.informacion .precio {
-    font-size: 20px;
-    font-weight: 500;
-}
-
-
-.contenedorMensaje {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-left: auto;
-    height: 70px;
-}
-
-.repetidoError,
-.realizado,
-.llenarCampos,
-.noExsiteError {
-    margin: 15px 0px;
-}
-
-.llenarCampos::after,
-.noExsiteError::after,
-.repetidoError::after,
-.realizado::after {
-    background-color: red;
-    font-size: 17px;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.realizado::after {
-    content: 'Realizado';
-    background-color: green;
-}
-
-.repetidoError::after {
-    content: 'Este elemento ya existe';
-}
-
-.llenarCampos::after {
-    content: 'Por favor compruebe que todos los campos estan llenos';
-}
-
-.noExsiteError::after {
-    content: 'Este elemento no existe';
 }

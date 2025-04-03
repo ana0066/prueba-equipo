@@ -88,9 +88,9 @@
     </header>
 
     <main>
-        <div class="contenedor-productos">
+        <div class="contenedor-cambios">
             <!-- Añadir -->
-            <div class="añadir">
+            <div class="añadir cambios">
                 <h2>Añadir</h2>
                 <form>
                     <label>Nombre del producto</label>
@@ -109,7 +109,7 @@
                 </form>
             </div>
             <!-- Editar -->
-            <div class="editar">
+            <div class="editar cambios">
                 <h2>Editar</h2>
                 <form>
                     <label>Nombre del producto</label>
@@ -130,7 +130,7 @@
             </div>
 
             <!-- Eliminar -->
-            <div class="eliminar">
+            <div class="eliminar cambios">
                 <h2>Eliminar</h2>
 
                 <form>
@@ -159,6 +159,8 @@
     </main>
 
     <script src="admin.js"></script>
+    <script src="../script.js"></script>
+    <script src="../carrito.js"></script>
 </body>
 
 </html>
