@@ -227,6 +227,8 @@ session_start();
                 <div class="estrellas">★★★★☆</div>
             </div>
         </div>
+
+        <script src="carrito.js"></script>
     
 <br>
 <br>

@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
 
-        if (password_verify($password, $user['contraseña'])) { // Si usaste password_hash()
+        if (password_verify($password, $user['contraseña'])) { 
             $_SESSION['usuario'] = $user['nombre'];
             $_SESSION['rol'] = $user['rol'];
 

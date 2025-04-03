@@ -1,14 +1,14 @@
 <?php
-function conectarDB() {
-    $host = "localhost";
-    $user = "root";  // Cambia según tu configuración
-    $password = "";  // Cambia según tu configuración
-    $dbname = "distribuidoral";
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "distribuidoral";
 
-    $conn = new mysqli($host, $user, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Error de conexión: " . $conn->connect_error);
-    }
-    return $conn;
+// Crear conexión
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificar conexión
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
 }
 ?>

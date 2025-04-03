@@ -106,11 +106,11 @@ session_start();
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo "<div class='product'>
-                            <img src='{$row['urlimagen']}' alt='{$row['nombre']}'>
+                            <img src='{$row['urlImagen']}' alt='{$row['nombre']}'>
                             <h3>{$row['nombre']}</h3>
                             <p>En stock: {$row['existencia']}</p>
                             <p>Precio: $ {$row['valor']}</p>
-                            <button onclick='agregarAlCarrito({$row['id']}, \"{$row['nombre']}\", {$row['valor']}, \"{$row['urlimagen']}\")'>Agregar al Carrito</button>
+                            <button onclick='agregarAlCarrito({$row['id']}, \"{$row['nombre']}\", {$row['valor']}, \"{$row['urlImagen']}\")'>Agregar al Carrito</button>
                           </div>";
                 }
             }
