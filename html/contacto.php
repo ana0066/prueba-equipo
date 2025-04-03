@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Contactanos</title>
-    <link rel="stylesheet" href="../css/contacto.css">
-    <!-- GOOGLE FONTs -->
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <!-- ANIMATE CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-    <link rel="stylesheet" href="../style.css">
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="../css/contacto.css" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
 
-    <nav>
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../style.css" />
+    
+  </head>
+  <body>
+
+  <nav>
         <div class="nav-bar">
             <i class='bx bx-menu sidebarOpen' ></i>
             <span class="logo navLogo"><a href="#">Distribuidora Lorenzo</a></span>
@@ -31,7 +36,7 @@
 
                 <ul class="nav-links">
                     <li><a href="../index.php">Inicio</a></li>
-                    <li><a href="../html/nosotros.php">Nosotros</a></li>
+                    <li><a href="../nosotros.php">Nosotros</a></li>
                     <li><a href="../html/productos.php">Productos</a></li>
                     <li><a href="../html/contacto.php">Contacto</a></li>
                     
@@ -57,7 +62,7 @@
                     </div>
                 </div>
                 <div class="cart-icon">
-                <i class="bx bxs-cart"  onclick="toggleCart()"></i>
+                <i class='bx bxs-cart onclick="toggleCart()"'></i>
                 <span id="cart-count">0</span>
             </div>
             </div>
@@ -66,10 +71,10 @@
             <div class="user">
                     <?php 
                         if (isset($_SESSION['usuario'])) {
-                            echo "<a class='searchToggle logoutBtn' id='logoutBtn' href='../php/logout.php'><i class='bx bx-log-out'></i></a>";
+                            echo "<a class='searchToggle logoutBtn' id='logoutBtn' href='php/logout.php'><i class='bx bx-log-out'></i></a>";
                             echo "<span class='username'>" . $_SESSION['usuario'] . "</span>";
                         } else {
-                            echo "<a class='searchToggle' href='../php/login.php'><i class='bx bx-user'></i></a>";
+                            echo "<a class='searchToggle' href='php/login.php'><i class='bx bx-user'></i></a>";
                         }
                     ?>
                 </div>
@@ -77,65 +82,91 @@
         </div>
         
     </nav>
-    
-    <div class="content">
 
-<h1 class="logo">Contactanos <span></span></h1>
+    <div class="container">
+      <span class="big-circle"></span>
+      <img src="img/shape.png" class="square" alt="" />
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Pongámonos en contacto</h3>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+            dolorum adipisci recusandae praesentium dicta!
+          </p>
 
-<div class="contact-wrapper animated bounceInUp">
-    <div class="contact-form">
-        <h3>Contactanos</h3>
-        <form action="">
-            <p>
-                <label>FullName</label>
-                <input type="text" name="fullname">
-            </p>
-            <p>
-                <label>Dirección de correo electrónico</label>
-                <input type="email" name="email">
-            </p>
-            <p>
-                <label>Número de teléfono</label>
-                <input type="tel" name="phone">
-            </p>
-            <p>
-                <label></label>
-                <input type="text" name="affair">
-            </p>
-            <p class="block">
-               <label>Mensaje</label> 
-                <textarea name="message" rows="3"></textarea>
-            </p>
-            <p class="block">
-                <button>
-                    Enviar
-                </button>
-            </p>
-        </form>
+          <div class="info">
+            <div class="information">
+              <img src="img/location.png" class="icon" alt="" />
+              <p>Santiago- La Ceibita, Santiago de los Caballeros 51000</p>
+            </div>
+            <div class="information">
+              <img src="img/email.png" class="icon" alt="" />
+              <p>lorem@ipsum.com</p>
+            </div>
+            <div class="information">
+              <img src="img/phone.png" class="icon" alt="" />
+              <p> +1 (829) 653-0243</p>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <p>Conecta con nosotros:</p>
+            <div class="social-icons">
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+
+          <form action="index.html" autocomplete="off">
+            <h3 class="title">Contactanos</h3>
+            <div class="input-container">
+              <input type="text" name="name" class="input" />
+              <label for="">Nombre de Usuario</label>
+              <span>Nombre de Usuario</span>
+            </div>
+            <div class="input-container">
+              <input type="email" name="email" class="input" />
+              <label for="">Correo electrónico</label>
+              <span>Dirección de correo electrónico<</span>
+            </div>
+            <div class="input-container">
+              <input type="tel" name="phone" class="input" />
+              <label for="">Número de teléfono</label>
+              <span>Número de teléfono</span>
+            </div>
+            <div class="input-container textarea">
+              <textarea name="message" class="input"></textarea>
+              <label for="">Mensaje</label>
+              <span>Mensaje</span>
+            </div>
+            <input type="submit" value="Enviar" class="btn" />
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="contact-info">
-        <h4>Más información</h4>
-        <ul>
-            <li><i class="fas fa-map-marker-alt"></i>  Santiago- La Ceibita, Santiago de los Caballeros 51000</li>
-            <li><i class="fas fa-phone"></i>  +1 (829) 653-0243 </li>
-            <li><i class="fas fa-envelope-open-text"></i> contact@website.com</li>
-        </ul>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero provident ipsam necessitatibus repellendus?</p>
-        <p>Company.com</p>
-    </div>
-</div>
 
-</div>
-
-</body>
-
-<!--::::Pie de Pagina::::::-->
-<footer class="pie-pagina">
+    <!--::::Pie de Pagina::::::-->
+    <footer class="pie-pagina">
         <div class="grupo-1">
             <div class="box">
                 <figure>
                     <a href="#">
-                        <img src="../img/LOGO.png" alt="Distribuidora/Lorenzo">
+                        <img src="img/LOGO.png" alt="Distribuidora/Lorenzo">
                     </a>
                 </figure>
             </div>
@@ -152,7 +183,7 @@
                 <h2>SIGUENOS</h2>
                 <div class="red-social">
                     <a href="https://www.facebook.com/distribuidoralorenzo00/" class="fa fa-facebook"><i class='bx bxl-facebook-circle' style='color:#ece0e0' ></i></a>
-                    <a href="#" class="fa fa-instagram"><i class='bx bxl-instagram' style='color:#ece0e0'  ></i></a>
+                    <a href="https://www.instagram.com/distribuidoralorenzo00?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="fa fa-instagram"><i class='bx bxl-instagram' style='color:#ece0e0'  ></i></a>
                     <a href="#" class="fa fa-twitter"><i class='bx bxl-twitter'></i></a>
                 
                 </div>
@@ -167,4 +198,8 @@
             <small>&copy; 2025 <b>Distribuidora Lorenzo</b> - Todos los Derechos Reservados.</small>
         </div>
     </footer>
+
+    <script src="../js/contacto.js"></script>
+    <script src="../script.js"></script>
+  </body>
 </html>
