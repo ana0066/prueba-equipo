@@ -43,7 +43,7 @@ main {
 
 #product-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 products per row */
+    grid-template-columns: repeat(4, 1fr); /* 3 products per row */
     gap: 20px;
     padding: 20px;
     max-width: 1200px;
@@ -107,7 +107,7 @@ main {
     z-index: 1000;
     display: flex;
     flex-direction: column;
-}
+    overflow: hidden;}
 
 #cart-items {
     flex-grow: 1;
