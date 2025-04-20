@@ -92,7 +92,7 @@
             <!-- Añadir -->
             <div class="añadir cambios">
                 <h2>Añadir</h2>
-                <form>
+                <form action="../php/addProduct.php" method="POST">
                     <label>Nombre del producto</label>
                     <input type="text" id="productoAñadir" name="nombreDelProducto">
 
@@ -104,6 +104,15 @@
 
                     <label>Url Imagen</label>
                     <input type="text" id="ImagenAñadir">
+
+                    <label>Categoría</label>
+                    <select name="..." id="categoriaAñadir">
+                        <option value="mobiliaria">Mobiliaria</option>
+                        <option value="vajilla">Vajillas</option>
+                        <option value="decoraciones">Decoraciones para el hogar</option>
+                        <option value="herramientas">Herramientas</option>
+                        <option value="electrodomesticos">Electrodomésticos</option>
+                    </select>
 
                     <input class="button" type="button" id="botonAñadir" value="Añadir">
                 </form>

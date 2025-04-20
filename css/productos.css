@@ -1,3 +1,4 @@
+/* General Styles */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -27,7 +28,7 @@ header .icons i {
 }
 
 main {
-    margin-top: 120px; /* Aumenta el margen superior para evitar solapamiento con el menú */
+    margin-top: 120px; /* Avoid overlap with the header */
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -42,16 +43,16 @@ main {
 
 #product-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Ahora se muestran 4 productos por fila */
+    grid-template-columns: repeat(4, 1fr); /* 4 products per row */
     gap: 20px;
     padding: 20px;
-    max-width: 1200px; /* Aumenta el ancho máximo para acomodar 4 productos */
+    max-width: 1200px;
     width: 100%;
     justify-content: center;
 }
 
 .product {
-    background-color: #8b766f;
+    background-color: #cec9c7;
     border-radius: 10px;
     overflow: hidden;
     padding: 15px;
@@ -64,7 +65,7 @@ main {
 }
 
 .product img {
-    background-color: #503e39;
+    background-color: #cec9c7;
     padding: 10px;
     border-radius: 20px;
     width: 100%;
@@ -72,7 +73,9 @@ main {
     object-fit: contain;
 }
 
-.product h3, .product p, .product button {
+.product h3,
+.product p,
+.product button {
     margin-top: 10px;
 }
 
@@ -90,6 +93,7 @@ main {
     background-color: #33231e;
 }
 
+/* Cart Styles */
 #cart {
     position: fixed;
     top: 80px;
@@ -99,7 +103,7 @@ main {
     background: white;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
     padding: 20px;
-    display: none;
+    display: none; /* Initially hidden */
     z-index: 1000;
     display: flex;
     flex-direction: column;
@@ -117,14 +121,6 @@ main {
     right: 10px;
     font-size: 20px;
     cursor: pointer;
-}
-
-#cart .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 20px;
     color: #513831;
 }
 
@@ -167,6 +163,36 @@ main {
     background-color: #7e645c;
 }
 
+/* Filtro de Categorías */
+.filter-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.filter-container form {
+    display: inline-block;
+}
+
+.filter-container select {
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.filter-container button {
+    padding: 5px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
     #product-list {
         grid-template-columns: repeat(3, 1fr);

@@ -182,7 +182,7 @@ session_start();
         </div>
         <div class="categoria">
             <img src="img/PRODUCTOS PARA EL HOGAR.jpeg" alt="Productos para el hogar">
-            <p>PRODUCTOS PARA EL HOGAR</p>
+            <p>HERRAMIENTAS</p>
         </div>
         <div class="categoria">
             <img src="img/Decoracion de hogar.jpeg" alt="Decoraciones para el hogar">

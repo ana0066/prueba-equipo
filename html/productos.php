@@ -66,7 +66,7 @@ session_start();
                    </div>
 
                     <div class="search-field">
-                        <input type="text" placeholder="Buscar...">
+                        <input type="text" id="searchInput" placeholder="Buscar...">
                         <i class='bx bx-search'></i>
                     </div>
                 </div>
@@ -93,31 +93,65 @@ session_start();
     </nav>
 
     <main>
-        <div id="product-list">
-            <?php
-            $conn = new mysqli('localhost', 'root', '', 'distribuidoral');
-            if ($conn->connect_error) {
-                die('Error de conexión: ' . $conn->connect_error);
-            }
 
-            $sql = "SELECT * FROM products";
-            $result = $conn->query($sql);
+        <!-- Filtro de Categorías -->
+    <div class="filter-container">
+        <form method="GET" action="productos.php">
+            <label for="categoria">Filtrar por Categoría:</label>
+            <select name="categoria" id="categoria">
+                <option value="">Todas</option>
+                <option value="electrodomesticos">Electrodomésticos</option>
+                <option value="mobiliaria">Muebles</option>
+                <option value="decoraciones">Decoración</option>
+                <option value="herramientas">Herramientas</option>
+                <option value="jardineria">Jardinería</option>
+            </select>
+            <button type="submit">Filtrar</button>
+        </form>
+    </div>
 
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<div class='product'>
-                            <img src='{$row['urlImagen']}' alt='{$row['nombre']}'>
-                            <h3>{$row['nombre']}</h3>
-                            <p>En stock: {$row['existencia']}</p>
-                            <p>Precio: $ {$row['valor']}</p>
-                            <button onclick='agregarAlCarrito({$row['id']}, \"{$row['nombre']}\", {$row['valor']}, \"{$row['urlImagen']}\")'>Agregar al Carrito</button>
-                          </div>";
-                }
-            }
-            $conn->close();
-            ?>
-        </div>
-    </main>
+    <div id="product-list">
+        <?php
+        $conn = new mysqli('localhost', 'root', '', 'distribuidoral');
+        if ($conn->connect_error) {
+            die('Error de conexión: ' . $conn->connect_error);
+        }
+
+       // Obtener la categoría seleccionada
+    $categoria = isset($_GET['categoria']) ? $_GET['categoria'] : '';
+
+    // Construir la consulta SQL
+    if ($categoria) {
+        $sql = "SELECT * FROM products WHERE categoria = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $categoria);
+        $stmt->execute();
+        $result = $stmt->get_result();
+    } else {
+        $sql = "SELECT * FROM products";
+        $result = $conn->query($sql);
+    }
+
+    // Mostrar los productos
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            echo "<div class='product' style='border: 1px solid #ccc; padding: 10px; margin: 10px;'>
+                    <img src='{$row['urlImagen']}' alt='{$row['nombre']}' style='width: 150px; height: auto;'>
+                    <h3>{$row['nombre']}</h3>
+                    <p>Categoría: {$row['categoria']}</p>
+                    <p>En stock: {$row['existencia']}</p>
+                    <p>Precio: RD$ {$row['valor']}</p>
+                    <button onclick='agregarAlCarrito({$row['id']}, \"{$row['nombre']}\", {$row['valor']}, \"{$row['urlImagen']}\")'>Agregar al Carrito</button>
+                  </div>";
+        }
+    } else {
+        echo "<p>No se encontraron productos en esta categoría.</p>";
+    }
+
+    $conn->close();
+    ?>
+    </div>
+</main>
 
     <aside id="cart">
         <span class="close-btn" onclick="toggleCart()">&times;</span>
@@ -132,6 +166,27 @@ session_start();
 
 </body>
 </head>
+
+    <!--SCRIPT DE BUSQUEDA-->
+
+    <script>
+  const searchInput = document.getElementById('searchInput');
+
+  searchInput.addEventListener('keyup', function () {
+    const filter = searchInput.value.toLowerCase();
+    const products = document.querySelectorAll('.product');
+
+    products.forEach(product => {
+      const text = product.textContent.toLowerCase();
+      if (text.includes(filter)) {
+        product.style.display = '';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  });
+</script>
+
 
 <body>
 <!--::::Pie de Pagina::::::-->

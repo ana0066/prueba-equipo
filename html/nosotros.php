@@ -123,8 +123,16 @@ session_start();
             <p>Distribuidora Lorenzo es una empresa dedicada a la comercialización de productos de alta calidad, trabajando día a día para mejorar la experiencia de compra de nuestros clientes.</p>
         </section>
     </main>
+
+    <aside id="cart">
+        <span class="close-btn" onclick="toggleCart()">&times;</span>
+        <h2>Carrito de Compras</h2>
+        <div id="cart-items"></div>
+        <div id="cart-total">Total: $0</div>
+        <button onclick="finalizarPago()">Finalizar Pago</button>
+    </aside> 
     
-</body>
+</body><script src="../carrito.js"></script>
 </head>
 
 <body>

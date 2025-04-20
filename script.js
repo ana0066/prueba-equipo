@@ -43,7 +43,7 @@ body.addEventListener("click" , e =>{
 });
 
 /*carrito*/ 
-document.getElementById("cartIcon").sidebarOpen.addEventListener("click", function() {
+document.getElementById("cartIcon").addEventListener("click", function() {
   alert("Carrito de compras abierto");
 });
 /*carrito*/ 

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
           valor: parseFloat(document.getElementById("valorAñadir").value),
           existencia: parseInt(document.getElementById("existenciaAñadir").value),
           urlImagen: document.getElementById("ImagenAñadir").value,
-          id_categorias: 1, // Ajustar según cómo manejarás las categorías
+          categoria: document.getElementById("categoriaAñadir").value, // Nuevo campo para categorías
       };
 
       fetch("../php/addProduct.php", {
@@ -25,6 +25,20 @@ document.addEventListener("DOMContentLoaded", () => {
               mostrarProductos();
           }
       })
+      .then(result => {
+        alert(result.message || result.error);
+        if (result.message) {
+            cargarProductos();
+            mostrarProductos();
+    
+            // 🔹 Vaciar campos después de agregar exitosamente
+            document.getElementById("productoAñadir").value = "";
+            document.getElementById("valorAñadir").value = "";
+            document.getElementById("existenciaAñadir").value = "";
+            document.getElementById("ImagenAñadir").value = "";
+            document.getElementById("categoriaAñadir").value = "";
+        }
+    })
       .catch(error => console.error("Error:", error));
   });
 
@@ -111,10 +125,12 @@ function cargarProductos() {
               <option value="valor">Valor</option>
               <option value="existencia">Existencia</option>
               <option value="urlImagen">Imagen</option>
+              <option value="categoria">Categoría</option>
           `;
       })
       .catch(error => console.error("Error cargando productos:", error));
 }
+
 
 // 🔹 Mostrar productos en la interfaz
 function mostrarProductos() {
@@ -131,6 +147,7 @@ function mostrarProductos() {
                       <h3>${producto.nombre}</h3>
                       <p>Valor: $${producto.valor}</p>
                       <p>Existencia: ${producto.existencia}</p>
+                      <p>Categoría: ${producto.categoria}</p> <!-- Mostrar categoría -->
                   </div>
               `;
               contenedor.innerHTML += productoHTML;
