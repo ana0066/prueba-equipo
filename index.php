@@ -82,7 +82,7 @@ session_start();
                             echo "<a class='searchToggle logoutBtn' id='logoutBtn' href='../php/logout.php'><i class='bx bx-log-out'></i></a>";
                             echo "<span class='username'>" . $_SESSION['usuario'] . "</span>";
                         } else {
-                            echo "<a class='searchToggle' href='../php/login.php'><i class='bx bx-user'></i></a>";
+                            echo "<a class='searchToggle' href='php/login.php'><i class='bx bx-user'></i></a>";
                         }
                     ?>
                 </div>
