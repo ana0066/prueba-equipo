@@ -1,35 +1,19 @@
-<?php
-session_start();
-?>
-
+<?php session_start(); ?>
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Productos</title>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout – Distribuidora Lorenzo</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../css/checkout.css">
+  <link rel="stylesheet" href="../css/productos.css">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://www.paypal.com/sdk/js?client-id=AXUAVkqwfkvaeRrSB0AqHxi3aD8bVMnS6oOBucZteoPKfrSJ0FIKDuFlBGygkfqnNA5DRLl9ZBS902eo&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo,paylater,card"></script>
+</head>
+<body>
 
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="../css/productos.css" />
-
-    <!-- Boxicons CSS -->
-    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
-  </head>
-  <body>
-    <!-- Navigation Bar -->
-    <nav>
-    <script>
-                  // Define the toggleCart function.
-                  function toggleCart() {
-                    console.log("Cart toggled!");
-                    // Add your actual logic here for toggling the cart.
-                  }
-                </script>
+<nav>
         <div class="nav-bar">
             <i class='bx bx-menu sidebarOpen' ></i>
             <span class="logo navLogo"><a href="#">Distribuidora Lorenzo</a></span>
@@ -69,9 +53,9 @@ session_start();
                     </div>
                 </div>
                 <div class="cart-icon">
-                  <i class="bx bxs-cart" onclick="toggleCart()"></i>
-                  <span id="cart-count">0</span>
-                </div>
+                <i class="bx bxs-cart"  onclick="toggleCart()"></i>
+                <span id="cart-count">0</span>
+            </div>
             </div>
             <div class="account-shopping">
 
@@ -88,34 +72,17 @@ session_start();
             </div>
         </div>
         
-    </nav>
+</nav>
+  
+<main class="checkout-container">
+    <h2>Resumen de tu pedido</h2>
+    <div class="checkoutContainer" id="checkoutContainer"></div>
 
-    <main>
+    <!-- Contenedor para el botón de PayPal -->
+    <div id="paypal-button-container"></div>
+</main>
 
-
-      <!-- Products Section -->
-      <section class="contenedorProductos">
-        <h2>Productos</h2>
-
-        <div class="filtro-productos">
-        <label for="filtroCategoria">Filtrar por categoría:</label>
-        <select id="filtroCategoria">
-          <option value="">Todas</option>
-          <option value="mobiliaria">Mobiliaria</option>
-          <option value="vajilla">Vajilla</option>
-          <option value="decoraciones">Decoraciones</option>
-          <option value="herramientas">Herramientas</option>
-          <option value="electrodomesticos">Electrodomésticos</option>
-        </select>
-        </div>
-
-        <div id="productosContainer" class="mostrarProductos">
-          <!-- aQUI SE VAN A CARGAR LOS PRODUCT -->
-        </div>
-      </section>
-    </main>
-
-    <div id="cartModal" class="cart-modal">
+<div id="cartModal" class="cart-modal">
         <h2>Tu carrito</h2>
         <div id="cartItems"></div>
         <div class="cart-footer">
@@ -124,8 +91,8 @@ session_start();
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="pie-pagina">
+
+  <footer class="pie-pagina">
       <div class="grupo-1">
         <div class="box">
           <figure>
@@ -172,9 +139,10 @@ session_start();
         <small>&copy; 2025 <b>Distribuidora Lorenzo</b> - Todos los Derechos Reservados.</small>
       </div>
     </footer>
-
-    <!-- Scripts -->
-    <script src="../carrito.js?v=2"></script>
+  
+  <script src="../carrito.js"></script>   
+  <script src="../js/checkout.js"></script>
+  <script src="../carrito.js?v=2"></script>
     <script src="../productos.js?v=2"></script>
-  </body>
+</body>
 </html>

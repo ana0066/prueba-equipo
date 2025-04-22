@@ -1,55 +1,137 @@
-let carrito = {};
+console.log('🍀 carrito.js v2 cargado');
 
-        function toggleCart() {
-            const cart = document.getElementById('cart');
-            cart.style.display = cart.style.display === 'none' ? 'block' : 'none';
-        }
+function toggleCart() {
+  console.log('🔔 toggleCart disparado');
+  const modal = document.getElementById('cartModal');
+  console.log('   modal =', modal);
+  if (!modal) {
+    console.error('toggleCart: elemento #cartModal no existe');
+    return;
+  }
+  modal.classList.toggle('visible');
+  if (modal.classList.contains('visible')) renderCart();
+}
 
-        function actualizarCarrito() {
-            const cartItems = document.getElementById('cart-items');
-            const cartTotal = document.getElementById('cart-total');
-            cartItems.innerHTML = '';
-            let totalItems = 0;
-            let totalPrice = 0;
+// Clave en localStorage
+const CART_KEY = 'cart';
 
-            for (let id in carrito) {
-                const item = carrito[id];
-                totalItems += item.cantidad;
-                totalPrice += item.precio * item.cantidad;
-                cartItems.innerHTML += `
-                    <div class="cart-item">
-                        <img src="${item.imagen}" alt="${item.nombre}">
-                        <div>
-                            <p>${item.nombre}</p>
-                            <p>Precio: $ ${item.precio}</p>
-                            <p>Cantidad: <input type="number" value="${item.cantidad}" min="0" onchange="cambiarCantidad(${id}, this.value)"></p>
-                        </div>
-                    </div>`;
-            }
+// ── LOCALSTORAGE ───────────────────────────────────────────────────────────────
+function getCart() {
+  return JSON.parse(localStorage.getItem(CART_KEY)) || {};
+}
 
-            document.getElementById('cart-count').innerText = totalItems;
-            cartTotal.innerText = `Total: $${totalPrice}`;
-        }
+function saveCart(cart) {
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+}
 
-        function agregarAlCarrito(id, nombre, precio, imagen) {
-            if (!carrito[id]) {
-                carrito[id] = { nombre, precio, imagen, cantidad: 0 };
-            }
-            carrito[id].cantidad++;
-            actualizarCarrito();
-        }
+// ── CONTADOR ──────────────────────────────────────────────────────────────────
+function updateCartCount() {
+  const countEl = document.getElementById('cart-count');
+  if (!countEl) return;
+  const cart = getCart();
+  const totalItems = Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+  countEl.textContent = totalItems;
+}
 
-        function cambiarCantidad(id, cantidad) {
-            if (cantidad <= 0) {
-                delete carrito[id];
-            } else {
-                carrito[id].cantidad = parseInt(cantidad);
-            }
-            actualizarCarrito();
-        }
+// ── AGREGAR, CAMBIAR, ELIMINAR ────────────────────────────────────────────────
+function addToCart(id) {
+  const cart = getCart();
+  cart[id] = (cart[id] || 0) + 1;
+  saveCart(cart);
+  updateCartCount();
+}
 
-        function finalizarPago() {
-            alert('Pago finalizado.');
-            carrito = {};
-            actualizarCarrito();
-        }
+function changeQuantity(id, qty) {
+  const cart = getCart();
+  if (qty <= 0) {
+    delete cart[id];
+  } else {
+    cart[id] = qty;
+  }
+  saveCart(cart);
+  updateCartCount();
+}
+
+function removeFromCart(id) {
+  const cart = getCart();
+  delete cart[id];
+  saveCart(cart);
+  updateCartCount();
+}
+
+// ── RENDERIZAR CARRITO ───────────────────────────────────────────────────────
+function renderCart() {
+  const cart = getCart();
+  const container = document.getElementById('cartItems');
+  container.innerHTML = '';
+
+  const ids = Object.keys(cart);
+  if (ids.length === 0) {
+    container.innerHTML = '<p>El carrito está vacío.</p>';
+    return;
+  }
+
+  // Cargo todos los productos y filtro
+  fetch('../server/fetchProducts.php')
+    .then(res => res.json())
+    .then(productsList => {
+      ids.forEach(id => {
+        const prod = productsList.find(p => p.id == id);
+        if (!prod) return;
+        const qty = cart[id];
+        const item = document.createElement('div');
+        item.className = 'cart-item';
+        item.innerHTML = `
+          <img src="${prod.urlImagen}" alt="${prod.nombre}">
+          <div class="cart-info">
+            <p>${prod.nombre}</p>
+            <input type="number" min="1" value="${qty}" data-id="${id}" class="cart-qty">
+            <p>$${(prod.valor * qty).toFixed(2)}</p>
+          </div>
+          <button class="remove-item" data-id="${id}">×</button>
+        `;
+        container.appendChild(item);
+      });
+
+      // Listeners para cambiar cantidad
+      container.querySelectorAll('.cart-qty').forEach(input => {
+        input.addEventListener('change', e => {
+          const id = e.target.dataset.id;
+          const newQty = parseInt(e.target.value);
+          if (isNaN(newQty) || newQty <= 0) {
+            removeFromCart(id);
+          } else {
+            changeQuantity(id, newQty);
+          }
+          renderCart();
+        });
+      });
+
+      // Listeners para eliminar producto
+      container.querySelectorAll('.remove-item').forEach(btn => {
+        btn.addEventListener('click', e => {
+          removeFromCart(e.target.dataset.id);
+          renderCart();
+        });
+      });
+    })
+    .catch(err => console.error('Error al cargar productos:', err));
+}
+
+// ── MOSTRAR / OCULTAR ─────────────────────────────────────────────────────────
+function toggleCart() {
+  const modal = document.getElementById('cartModal');
+  if (!modal) {
+    console.error('toggleCart: elemento #cartModal no existe');
+    return;
+  }
+  modal.classList.toggle('visible');
+  if (modal.classList.contains('visible')) {
+    renderCart();
+  }
+}
+
+// ── INICIALIZACIÓN ───────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  updateCartCount();
+});
