@@ -30,7 +30,7 @@ session_start();
 </head>
 <body>
     
-<nav>
+<!<nav>
         <div class="nav-bar">
             <i class='bx bx-menu sidebarOpen' ></i>
             <span class="logo navLogo"><a href="#">Distribuidora Lorenzo</a></span>
