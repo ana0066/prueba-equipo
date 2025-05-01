@@ -80,3 +80,130 @@ ul {
         flex: 1 1 100%;
     }
 }
+
+
+
+
+
+
+
+
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color:  #513831;
+  color: #f5f5f5;
+}
+
+/* HERO SECTION */
+.hero-section {
+  background: url('../../../img/Distri.jpg') no-repeat center center/cover;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+ 
+  padding: 60px;
+  text-align: center;
+  border-radius: 15px;
+  animation: fadeIn 2s ease-in;
+}
+
+.hero-logo {
+  width: 120px;
+  margin-bottom: 20px;
+  filter: brightness(1.2);
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 50px;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: #ccc;
+  margin: 20px 0;
+}
+
+.btn-cta {
+  background-color: #ffffff;
+  color: #111;
+  text-decoration: none;
+  padding: 12px 25px;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+  background-color: #fff;
+  color: #111;
+}
+
+/* INFO SECTION */
+.info-section {
+  background-color: #f5f0f0;
+  padding: 80px 40px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.info-card {
+  background-color: #110c0b; /*fondo de las tarjetas*/
+  border-left: 5px solid #c59d5f;
+  padding: 30px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+}
+
+.info-card h2 {
+  font-family: 'Playfair Display', serif;
+  color: #c59d5f; /*texto de las tarjetas*/
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.info-card p, .info-card li {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.info-card ul {
+  padding-left: 20px;
+  list-style: none;
+}
+
+.info-card ul li::before {
+  content: "• ";
+  color: #c59d5f;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
