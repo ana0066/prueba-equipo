@@ -136,7 +136,7 @@ session_start();
           <span class="circle one"></span>
           <span class="circle two"></span>
 
-          <form action="index.html" autocomplete="off">
+          <form action="https://formsubmit.co/distribuidoralorenzo19@gmail.com" method="POST">
             <h3 class="title">Contactanos</h3>
             <div class="input-container">
               <input type="text" name="name" class="input" />

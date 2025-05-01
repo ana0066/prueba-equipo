@@ -21,6 +21,7 @@ session_start();
     <link rel="stylesheet" href="../style.css" />
     <link rel="stylesheet" href="../css/productos.css">
     <link rel="stylesheet" href="../css/nosotros.css">
+    <script src="../Nosotros.js"></script>
   </head>
   <body>
     
@@ -93,35 +94,38 @@ session_start();
         
     </nav>
 
-    <div class="nosotros-inicio">
-    <img src="../img/LOGO.png" alt="Logo de Distribuidora Lorenzo" class="nosotros-logo">
-    <p class="nombre-dl">Distribuidora Lorenzo</p>
-    <p class="nosotros-frase">"Comprometidos con la excelencia y la satisfacción de nuestros clientes"</p>
-    </div>
+    
+    </section>
 
-    <main class="nosotros-main-content">
-        <section class="nosotros-section">
-            <h2>Misión</h2>
-            <p>Nuestra misión es ofrecer productos de alta calidad al mejor precio, brindando un servicio excepcional y garantizando la satisfacción de nuestros clientes.</p>
-        </section>
-        <section class="nosotros-section">
-            <h2>Visión</h2>
-            <p>Ser la distribuidora líder en el mercado, reconocida por nuestra confiabilidad, excelencia en el servicio y compromiso con la innovación.</p>
-        </section>
-        <section class="nosotros-section">
-            <h2>Valores</h2>
-            <ul>
-                <li>Compromiso</li>
-                <li>Calidad</li>
-                <li>Transparencia</li>
-                <li>Innovación</li>
-                <li>Responsabilidad</li>
-            </ul>
-        </section>
-        <section class="nosotros-section">
-            <h2>Sobre Nosotros</h2>
-            <p>Distribuidora Lorenzo es una empresa dedicada a la comercialización de productos de alta calidad, trabajando día a día para mejorar la experiencia de compra de nuestros clientes.</p>
-        </section>
+<section id="info" class="info-section">
+  <div class="info-grid">
+    <div class="info-card">
+      <h2>MISIÓN</h2>
+      <p>Ofrecer productos de alta calidad al mejor precio, brindando un servicio excepcional y garantizando la satisfacción de nuestros clientes.</p>
+    </div>
+    <div class="info-card">
+      <h2>VISIÓN</h2>
+      <p>Ser la distribuidora líder en el mercado, reconocida por nuestra confiabilidad, excelencia en el servicio y compromiso con la innovación.</p>
+    </div>
+    <div class="info-card">
+      <h2>VALORES</h2>
+      <ul>
+        <li>Compromiso</li>
+        <li>Calidad</li>
+        <li>Transparencia</li>
+        <li>Innovación</li>
+        <li>Responsabilidad</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h2>SOBRE NOSOTROS</h2>
+      <p>Distribuidora Lorenzo es una empresa dedicada a la comercialización de productos de alta calidad, trabajando día a día para mejorar la experiencia de compra de nuestros clientes.</p>
+    </div>
+  </div>
+
+</section>
+
+
     </main>
 
     <aside id="cart">

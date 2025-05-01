@@ -257,6 +257,7 @@ session_start();
                 <p>Políticas de devolución</p>
             </b>
             </div>
+            
             <div class="box">
                 <h2>SIGUENOS</h2>
                 <div class="red-social">

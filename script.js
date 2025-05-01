@@ -49,3 +49,9 @@ document.getElementById("cartIcon").addEventListener("click", function() {
 /*carrito*/ 
 
 
+
+
+
+
+
+
