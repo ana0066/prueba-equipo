@@ -48,9 +48,14 @@ document.getElementById("cartIcon").addEventListener("click", function() {
 });
 /*carrito*/ 
 
+/*abrir menu lateral*/
 
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
 
-
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active'); // Alterna la clase 'active' para mostrar/ocultar el menú
+});
 
 
 

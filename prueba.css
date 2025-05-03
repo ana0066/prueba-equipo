@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: sans-serif;
     padding-top: 60px; 
 }
 
@@ -22,14 +22,20 @@ header h1 {
     margin-left: 30px;
 }
 
+header .icons{
+    margin-right: 30px;
+}
+
 header .icons i {
     margin-left: 15px;
+    gap: 30px;
     cursor: pointer;
 }
 
 .products-container {
     display: flex;
     justify-content: center;
+    margin: 40px 10px;
 }
 
 #product-list {
@@ -42,12 +48,14 @@ header .icons i {
 }
 
 .product {
-    background-color: #51383156;
+    background-color: #e2dddd;
     border-radius: 10px;
     overflow: hidden;
-    padding: 15px;
+    padding: 10px; 
     text-align: center;
     transition: transform 0.2s;
+    height: auto;
+    text-transform: capitalize;
 }
 
 .product:hover {
@@ -55,31 +63,32 @@ header .icons i {
 }
 
 .product img {
-    background-color: #513831;
-    padding: 10px;
+    padding: 5px; /* Reducido el padding de la imagen */
     border-radius: 8px;
     width: 100%;
-    height: 200px;
+    height: 150px; /* Reducida la altura de la imagen */
     object-fit: contain;
 }
 
 .product h3, .product p, .product button {
-    margin-top: 10px;
+    margin-top: 5px; /* Reducido el margen entre elementos */
 }
 
 .product button {
-    padding: 10px 15px;
-    background-color: #513831;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    background-color: #e2dddd;
+    padding: 8px 25px;
+    border: 1px solid #000;
+    border-radius: 20px;
+    color: #000;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
 .product button:hover {
-    background-color: #2b1e1a;
+    background-color: #000000;
+    color: #ffffff;
 }
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -108,6 +117,7 @@ header .icons i {
     padding: 20px;
     display: none;
     overflow-y: auto;
+    z-index: 1001;
 }
 
 #cart .close-btn {

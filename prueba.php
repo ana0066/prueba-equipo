@@ -9,6 +9,10 @@
 </head>
 <body>
     <header>
+        
+    <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
         <h1>Distribuidora Lorenzo</h1>
         <nav>
             <ul class="nav-links">
@@ -20,16 +24,14 @@
         </nav>
         <div class="icons">
             <i class="fas fa-search"></i>
-            <i class="fas fa-user">
             <?php 
                         if (isset($_SESSION['usuario'])) {
-                            echo "<a class='searchToggle logoutBtn' id='logoutBtn' href='../php/logout.php'><i class='bx bx-log-out'></i></a>";
+                            echo "<a class='searchToggle logoutBtn' id='logoutBtn' href='../php/logout.php'><i class='fas fa-log-out'></i></a>";
                             echo "<span class='username'>" . $_SESSION['usuario'] . "</span>";
                         } else {
-                            echo "<a class='searchToggle' href='php/login.php'><i class='bx bx-user'></i></a>";
+                            echo "<a class='searchToggle' href='php/login.php'><i class='fas fa-user'></i></a>";
                         }
                     ?>
-            </i>
             <i class="fas fa-shopping-cart" onclick="toggleCart()"></i>
             <span id="cart-count">0</span>
         </div>
@@ -127,5 +129,6 @@
             actualizarCarrito();
         }
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
